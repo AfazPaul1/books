@@ -8,7 +8,9 @@ function App() {
   const [books, setBooks] = useState([])
 
   const handleCreate = (book) => {
-    setBooks(...setBooks, book)
+    console.log(book);
+    
+    setBooks([...books, book])
   }
 
   return (
