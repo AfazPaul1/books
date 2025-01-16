@@ -7,15 +7,21 @@ import BookCreate from './components/BookCreate'
 function App() {
   const [books, setBooks] = useState([])
 
+  //bad code
+
   const handleCreate = (book) => {
     console.log(book);
-    
-    setBooks([...books, book])
+    books.push({id:123, title:book})
+    setBooks(books)
   }
 
   return (
-    <BookCreate onCreate={handleCreate}>
-    </BookCreate>
+    <div>
+      {books.length}
+      <BookCreate onCreate={handleCreate}>
+      </BookCreate>
+    </div>
+    
   )
 }
 
