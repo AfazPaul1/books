@@ -10,9 +10,12 @@ function App() {
   //bad code
 
   const handleCreate = (book) => {
-    console.log(book);
-    books.push({id:123, title:book})
-    setBooks(books)
+    console.log(books);
+
+    //books only has a reference to the location 
+    //so when we update in place react for optimization purposes sees the same addrss and performs no ui update
+    //for that reason we have to create a new array to state whenever we update it
+    setBooks([...books, {id:123, title:book}])
   }
 
   return (
