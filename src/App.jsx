@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import BookCreate from './components/BookCreate'
+import BookList from './components/BookList'
 
 function App() {
   const [books, setBooks] = useState([])
@@ -10,7 +11,7 @@ function App() {
   //bad code
 
   const handleCreate = (book) => {
-    console.log(books);
+    //console.log(books);
 
     //books only has a reference to the location 
     //so when we update in place react for optimization purposes sees the same addrss and performs no ui update
@@ -23,6 +24,8 @@ function App() {
       {books.length}
       <BookCreate onCreate={handleCreate}>
       </BookCreate>
+      <BookList books={books} />
+      
     </div>
     
   )

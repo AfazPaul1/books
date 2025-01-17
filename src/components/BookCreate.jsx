@@ -12,7 +12,11 @@ function BookCreate({onCreate}) {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        onCreate(book)
+        //only create if state has something
+        if (book) {
+            onCreate(book)
+        }
+        
         setBook("")
 
     }
