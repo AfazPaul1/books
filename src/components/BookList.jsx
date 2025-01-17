@@ -4,14 +4,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import BookShow from './BookShow';
-function BookList({books}) {
+function BookList({books, deleteBook}) {
     //forgot to destrcture book from props that was a headache to resolve
-    console.log(books);
+    //console.log(books);
+    console.log(deleteBook)
+
     
     return (
-        <Grid container spacing = {2}>
+        <Grid container spacing = {2} columns = {1}>
             {books.map((book) => {
-                return <BookShow book={book} key = {book.id}></BookShow>
+                return <BookShow deleteBook = {deleteBook} book={book} key = {book.id} ></BookShow>
             })}
         </Grid>
     )
