@@ -23,6 +23,9 @@ function BookCreate({onCreate}) {
 
 
     return (
+        //have a question regarding onsubmit
+        //if i trigger form submit by clicking on a button in a form
+        //addressed it below
         <form onSubmit={onSubmit}>
             <Box>
                 <Grid sx={{ backgroundColor: 'lightgreen', padding: 1 }} container spacing={2}>
@@ -43,7 +46,8 @@ function BookCreate({onCreate}) {
                             variant="outlined" />
                         </Grid>
                         <Grid display="flex" alignItems="center" item xs={4}>
-                            <Button onClick={onSubmit} variant="contained">Submit</Button>
+                            {/* learned the right way to do it was set type prop as submit */}
+                            <Button type = "submit" variant="contained">Submit</Button>
                         </Grid>
                     </Grid>
                 </Grid>

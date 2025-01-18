@@ -9,15 +9,21 @@ import { CardActions, IconButton } from '@mui/material';
 import BookEdit from './BookEdit'
 import { useState } from 'react';
 
-function BookShow({book, deleteBook}) {
+function BookShow({book, deleteBook, EditBookById}) {
 
     const [edit, setEdit] = useState(false)
+
+
+    //callback which toggle to not show edit component anymore after the form submit
+    const handleOnEdit = () => {
+        setEdit(!edit)
+    }
 
     return (
         <Grid item >
             <Card>
                 <CardContent>
-                    {edit? <BookEdit book={book}/> : <Typography variant='h2'>
+                    {edit? <BookEdit handleOnEdit={handleOnEdit} EditBookById={EditBookById} book={book}/> : <Typography variant='h2'>
                         {book.title}
                     </Typography>}
                 </CardContent>

@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import BookShow from './BookShow';
-function BookList({books, deleteBook}) {
+function BookList({books, deleteBook, EditBookById}) {
     
 
 
@@ -12,7 +12,7 @@ function BookList({books, deleteBook}) {
     return (
         <Grid container spacing = {2} columns = {1}>
             {books.map((book) => {
-                return <BookShow deleteBook = {deleteBook} book={book} key = {book.id} ></BookShow>
+                return <BookShow EditBookById={EditBookById} deleteBook = {deleteBook} book={book} key = {book.id} ></BookShow>
             })}
         </Grid>
     )

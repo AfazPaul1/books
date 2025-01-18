@@ -14,6 +14,16 @@ function App() {
     setBooks([...books, {id: Math.round(Math.random() * 9999 ), title:book}])
   }
 
+  const EditBookById = (id, newTitle) => {
+    setBooks(books.map((book) => {
+      //not adding return here caused the BookList.jsx:15 Uncaught TypeError: Cannot read properties of undefined (reading 'id')
+      //at BookList.jsx:15:112 error and crashd the app
+      // JavaScript interprets this as a function with no explicit return value. As a result, the function implicitly returns undefined.
+      //The map method constructs a new array by collecting the return values of the callback function. Since all return values are undefined, the resulting array is [undefined, undefined, ...].
+      return book.id = id? {...book, title: newTitle} : book
+    }))
+  }
+
   const deleteBook = (id) => {
 
 
@@ -31,7 +41,7 @@ function App() {
       {books.length}
       <BookCreate onCreate={handleCreate}>
       </BookCreate>
-      <BookList books={books} deleteBook={deleteBook}/>
+      <BookList EditBookById={EditBookById} books={books} deleteBook={deleteBook}/>
       
     </Grid>
       
