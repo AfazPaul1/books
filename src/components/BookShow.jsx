@@ -4,27 +4,37 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { CardActions, IconButton } from '@mui/material';
+import BookEdit from './BookEdit'
+import { useState } from 'react';
 
 function BookShow({book, deleteBook}) {
-    console.log(deleteBook)
-    
+
+    const [edit, setEdit] = useState(false)
+
     return (
         <Grid item >
             <Card>
                 <CardContent>
-                    <Typography variant='h2'>
+                    {edit? <BookEdit /> : <Typography variant='h2'>
                         {book.title}
-                    </Typography>
+                    </Typography>}
                 </CardContent>
                 <CardActions>
-                    <IconButton onClick={() => {
-                        //cant figure this out
-                        //get error deletbook is not a function 
-                        //when i look at props for bookshow it says undefined
+                    <IconButton 
+                    onClick={() => {
                         deleteBook(book.id)
-                    }} aria-label="delete">
-                        <DeleteIcon />
+                    }} 
+                    aria-label="delete">
+                    <DeleteIcon />
+                    </IconButton>
+                    <IconButton 
+                    onClick={() => {
+                        setEdit(!edit)
+                    }} 
+                    aria-label="edit">
+                    <EditIcon />
                     </IconButton>
                 </CardActions>
                 

@@ -5,9 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import BookShow from './BookShow';
 function BookList({books, deleteBook}) {
-    //forgot to destrcture book from props that was a headache to resolve
-    //console.log(books);
-    console.log(deleteBook)
+    
+
 
     
     return (
