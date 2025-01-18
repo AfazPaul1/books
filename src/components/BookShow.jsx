@@ -17,7 +17,7 @@ function BookShow({book, deleteBook}) {
         <Grid item >
             <Card>
                 <CardContent>
-                    {edit? <BookEdit /> : <Typography variant='h2'>
+                    {edit? <BookEdit book={book}/> : <Typography variant='h2'>
                         {book.title}
                     </Typography>}
                 </CardContent>
