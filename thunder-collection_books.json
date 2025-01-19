@@ -1,0 +1,85 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "books",
+    "collectionId": "b8ead218-731e-40fe-a79a-908b87cdb702",
+    "dateExported": "2025-01-19T13:57:56.631Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9fdba963-c2f9-4f67-91a6-c18a01f1ec66",
+            "colId": "b8ead218-731e-40fe-a79a-908b87cdb702",
+            "containerId": "",
+            "name": "get all books",
+            "url": "http://localhost:3001/books",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2025-01-19T13:45:57.404Z",
+            "modified": "2025-01-19T13:45:57.404Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ]
+        },
+        {
+            "_id": "8e3c9586-f54a-4fd0-870f-7065f519339b",
+            "colId": "b8ead218-731e-40fe-a79a-908b87cdb702",
+            "containerId": "",
+            "name": "create book",
+            "url": "",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2025-01-19T13:48:45.602Z",
+            "modified": "2025-01-19T13:50:55.796Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Harry Potter\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3c094bad-1670-4121-b799-2ec683595666",
+            "colId": "b8ead218-731e-40fe-a79a-908b87cdb702",
+            "containerId": "",
+            "name": "edit book",
+            "url": "/e0a1",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2025-01-19T13:53:46.782Z",
+            "modified": "2025-01-19T13:54:39.689Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Dark Tower\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "72a963fc-85ab-402a-a984-205e08d2bf66",
+            "colId": "b8ead218-731e-40fe-a79a-908b87cdb702",
+            "containerId": "",
+            "name": "delete book",
+            "url": "/e0a1",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2025-01-19T13:55:27.937Z",
+            "modified": "2025-01-19T13:55:46.075Z",
+            "headers": []
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "options": {
+            "baseUrl": "http://localhost:3001/books"
+        }
+    },
+    "ref": "ejhBLymopuUxAsBlPcD42Ql5C87R9Jks1PFrFv2UDn8vcRMO_AEyO5fcsFgPWVXTdyniib4Y4f6RY-RO1hC2ig"
+}
