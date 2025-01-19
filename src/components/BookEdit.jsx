@@ -9,7 +9,10 @@ function BookEdit({book, handleOnEdit}) {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        handleOnEdit(title)
+        if (title) {
+            handleOnEdit(title)
+        }
+       
     }
 
     return (
