@@ -55,7 +55,8 @@ function BookShow({book, deleteBook, EditBookById}) {
                     }}
                 component="img"
                 alt="green iguana"
-                image="https://picsum.photos/300/200"
+                //to gen dif images every time to overcome cache which when we make the request to same url provides the image already in cache
+                image={`https://picsum.photos/seed/${book.id}/300/200`}
                 
                 />
                 <CardContent>
