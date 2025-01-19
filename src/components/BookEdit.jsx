@@ -3,14 +3,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid2';
 import { useState } from 'react';
-function BookEdit({book, EditBookById, handleOnEdit}) {
+function BookEdit({book, handleOnEdit}) {
 
     const [title, setTitle] = useState("");
 
     const onSubmit = (event) => {
         event.preventDefault()
-        EditBookById(book.id, title)
-        handleOnEdit()
+        handleOnEdit(title)
     }
 
     return (

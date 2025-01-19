@@ -15,7 +15,8 @@ function BookShow({book, deleteBook, EditBookById}) {
 
 
     //callback which toggle to not show edit component anymore after the form submit
-    const handleOnEdit = () => {
+    const handleOnEdit = (title) => {
+        EditBookById(book.id, title)
         setEdit(!edit)
     }
 
@@ -36,9 +37,7 @@ function BookShow({book, deleteBook, EditBookById}) {
                     <DeleteIcon />
                     </IconButton>
                     <IconButton 
-                    onClick={() => {
-                        setEdit(!edit)
-                    }} 
+                    onClick={handleOnEdit} 
                     aria-label="edit">
                     <EditIcon />
                     </IconButton>
