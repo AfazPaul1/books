@@ -5,13 +5,17 @@ import './App.css'
 import BookCreate from './components/BookCreate'
 import BookList from './components/BookList'
 import Grid from '@mui/material/Grid2';
+import axios from 'axios'
 
 function App() {
   const [books, setBooks] = useState([])
 
-  const handleCreate = (book) => {
-   
-    setBooks([...books, {id: Math.round(Math.random() * 9999 ), title:book}])
+  const handleCreate = async (title) => {
+    const response = await axios.post('http://localhost:3001/books', {
+      title
+    })
+    
+    setBooks([...books, response.data])
   }
 
   const EditBookById = (id, newTitle) => {
