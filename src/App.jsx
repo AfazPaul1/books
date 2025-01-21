@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -18,15 +18,29 @@ function App() {
     setBooks([...books, response.data])
   }
 
-  const EditBookById = (id, newTitle) => {
+
+  //ok with this editbook when i clickedit and type the new name and submit
+  // ir correctly shows the updated name but it adds the same component agan and again for the length of books and after that rest are shown
+  //even in react dev tools it doesnt show up since same id?
+  //ok now i edited the last comp now every comp has the same id in dev tools
+  //but after some time it changes to show correct edited id and the rest but those componenets still stay
+  //so what is happening?
+  const EditBookById = async (id, newTitle) => {
+
+    const response = await axios.put(`http://localhost:3001/books/${id}`, {
+      title: newTitle
+    })
+
     setBooks(books.map((book) => {
-      //not adding return here caused the BookList.jsx:15 Uncaught TypeError: Cannot read properties of undefined (reading 'id')
-      //at BookList.jsx:15:112 error and crashd the app
-      // JavaScript interprets this as a function with no explicit return value. As a result, the function implicitly returns undefined.
-      //The map method constructs a new array by collecting the return values of the callback function. Since all return values are undefined, the resulting array is [undefined, undefined, ...].
-      return book.id = id? {...book, title: newTitle} : book
+      //ok the error was i used = instead of ===
+      //so what this did was went over every book and assigned it the id and changed state for them all to response
+      //this made all those components the same thing
+      //when i change code causing a rerender the fetch all useffect runs and add those again to the state but retains those duplicate componenets
+      return book.id === id? {...book, ...response.data} : book
     }))
+    
   }
+  
 
   const deleteBook = (id) => {
 
@@ -39,6 +53,16 @@ function App() {
     
 
   }
+
+  const fetchAll = async () => {
+    const response = await axios.get("http://localhost:3001/books")
+
+    setBooks(response.data)
+  }
+
+  useEffect(() => {
+    fetchAll()
+  }, [])
 
   return (
     <Grid container spacing={2}>
