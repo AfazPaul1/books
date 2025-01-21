@@ -19,12 +19,7 @@ function App() {
   }
 
 
-  //ok with this editbook when i clickedit and type the new name and submit
-  // ir correctly shows the updated name but it adds the same component agan and again for the length of books and after that rest are shown
-  //even in react dev tools it doesnt show up since same id?
-  //ok now i edited the last comp now every comp has the same id in dev tools
-  //but after some time it changes to show correct edited id and the rest but those componenets still stay
-  //so what is happening?
+
   const EditBookById = async (id, newTitle) => {
 
     const response = await axios.put(`http://localhost:3001/books/${id}`, {
@@ -32,23 +27,18 @@ function App() {
     })
 
     setBooks(books.map((book) => {
-      //ok the error was i used = instead of ===
-      //so what this did was went over every book and assigned it the id and changed state for them all to response
-      //this made all those components the same thing
-      //when i change code causing a rerender the fetch all useffect runs and add those again to the state but retains those duplicate componenets
       return book.id === id? {...book, ...response.data} : book
     }))
     
   }
   
 
-  const deleteBook = (id) => {
+  const deleteBook = async (id) => {
 
-
-    console.log(id);
+    const response = await axios.delete(`http://localhost:3001/books/${id}`)
     
     setBooks(books.filter((book) => {
-      return book.id !== id
+      return book.id !== response.data.id
     }))
     
 
