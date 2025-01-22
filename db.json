@@ -1,24 +1,3 @@
 {
-  "books": [
-    {
-      "title": "dark tower",
-      "id": "39a3"
-    },
-    {
-      "title": "harry",
-      "id": "187e"
-    },
-    {
-      "title": "afaz",
-      "id": "b876"
-    },
-    {
-      "title": "dark tower",
-      "id": "d77f"
-    },
-    {
-      "id": "c9ad",
-      "title": "potter"
-    }
-  ]
+  "books": []
 }

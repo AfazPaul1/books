@@ -9,14 +9,15 @@ import EditIcon from '@mui/icons-material/Edit';
 import { CardActions, IconButton } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
 import BookEdit from './BookEdit'
-import { useState, useContext } from 'react';
-import BooksContext from '../context/books';
+import { useState } from 'react';
+import useBooksContext from '../hooks/useBooksContext';
+
 
 function BookShow({book}) {
 
     const [edit, setEdit] = useState(false)
 
-    const {deleteBookById} = useContext(BooksContext)
+    const {deleteBookById} = useBooksContext()
 
 
     //so while refactoring for context how do i handle this?

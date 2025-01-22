@@ -4,15 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import BookShow from './BookShow';
-import { useContext  } from 'react';
-import BooksContext from '../context/books';
+import useBooksContext from '../hooks/useBooksContext';
+
 function BookList() {
     
-    //could haeve used this to find out structure of valuetoshare
-    console.log(useContext(BooksContext));
-    
-    const { books } = useContext(BooksContext)
-    
+    const { books } = useBooksContext()
 
     return (
         <Grid container spacing = {2} columns = {1}>

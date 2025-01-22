@@ -2,14 +2,14 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid2';
-import { useState, useContext } from 'react';
-import BooksContext from '../context/books';
+import { useState } from 'react';
+import useBooksContext from '../hooks/useBooksContext';
 
 function BookEdit({book, handleOnEdit}) {
 
     const [title, setTitle] = useState("");
 
-    const {editBookById} = useContext(BooksContext)
+    const {editBookById} = useBooksContext()
 
 
     const onSubmit = (event) => {
