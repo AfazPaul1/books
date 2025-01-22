@@ -2,15 +2,21 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid2';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import BooksContext from '../context/books';
+
 function BookEdit({book, handleOnEdit}) {
 
     const [title, setTitle] = useState("");
 
+    const {editBookById} = useContext(BooksContext)
+
+
     const onSubmit = (event) => {
         event.preventDefault()
         if (title) {
-            handleOnEdit(title)
+            editBookById(book.id, title)
+            handleOnEdit()
         }
        
     }

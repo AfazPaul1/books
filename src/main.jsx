@@ -7,7 +7,7 @@ import {Provider} from './context/books'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider>
-      <App />
+      <App/>
     </Provider>
   </StrictMode>,
 )

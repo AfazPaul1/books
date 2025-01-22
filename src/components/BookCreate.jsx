@@ -4,33 +4,28 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
-import { useContext  } from 'react';
-import BooksContext from '../context/books';
-function BookCreate({onCreate}) {
-
+import { useState, useContext } from 'react';
+import BooksContext from '../context/books'
+function BookCreate() {
 
     const [book, setBook] = useState("")
+
+    const {handleCreate} = useContext(BooksContext)
 
     const onSubmit = (event) => {
         event.preventDefault()
         //only create if state has something
         if (book) {
-            onCreate(book)
+            handleCreate(book)
         }
         
         setBook("")
 
     }
 
-    const {count, incrementCount} = useContext(BooksContext)
-
-
     return (
         <form onSubmit={onSubmit}>
             <Box>
-                {count}
-                <button onClick={incrementCount}>click</button>
                 <Grid sx={{ backgroundColor: 'lightgreen', padding: 1 }} container spacing={2}>
                     <Grid sx={{ backgroundColor: 'lightblue', padding: 1 }} item size={12}>
                         <Typography variant="h6" gutterBottom>

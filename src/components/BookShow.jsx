@@ -9,16 +9,22 @@ import EditIcon from '@mui/icons-material/Edit';
 import { CardActions, IconButton } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
 import BookEdit from './BookEdit'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import BooksContext from '../context/books';
 
-function BookShow({book, deleteBook, EditBookById}) {
+function BookShow({book}) {
 
     const [edit, setEdit] = useState(false)
 
+    const {deleteBookById} = useContext(BooksContext)
 
-    //callback which toggle to not show edit component anymore after the form submit
-    const handleOnEdit = (title) => {
-        EditBookById(book.id, title)
+
+    //so while refactoring for context how do i handle this?
+    //the issue is with toggling edit state
+    //editbook isnt required here 
+    //but if i didnt use that here i would have to wrap setedit and send it as a separate callback     
+    //ig hats what we are doing
+    const handleOnEdit = () => {
         setEdit(!edit)
     }
 
@@ -32,13 +38,13 @@ function BookShow({book, deleteBook, EditBookById}) {
                         <IconButton 
                         
                         onClick={() => {
-                            deleteBook(book.id)
+                            deleteBookById(book.id)
                         }} 
                         aria-label="delete">
                         <DeleteIcon size='small'/>
                         </IconButton>
                         <IconButton 
-                        
+                        //ok looks like there was a bug here before this refactor on handleeditwhen i clicked on edit button a put request was made?
                         onClick={handleOnEdit} 
                         aria-label="edit">
                         <EditIcon size='small'/>
@@ -60,7 +66,7 @@ function BookShow({book, deleteBook, EditBookById}) {
                 
                 />
                 <CardContent>
-                    {edit? <BookEdit handleOnEdit={handleOnEdit} EditBookById={EditBookById} book={book}/> : <Typography variant='h2'>
+                    {edit? <BookEdit handleOnEdit={handleOnEdit} book={book}/> : <Typography variant='h2'>
                         {book.title}
                     </Typography>}
                 </CardContent>
