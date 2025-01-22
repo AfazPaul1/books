@@ -5,6 +5,8 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid2';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import { useContext  } from 'react';
+import BooksContext from '../context/books';
 function BookCreate({onCreate}) {
 
 
@@ -21,13 +23,14 @@ function BookCreate({onCreate}) {
 
     }
 
+    const {count, incrementCount} = useContext(BooksContext)
+
 
     return (
-        //have a question regarding onsubmit
-        //if i trigger form submit by clicking on a button in a form
-        //addressed it below
         <form onSubmit={onSubmit}>
             <Box>
+                {count}
+                <button onClick={incrementCount}>click</button>
                 <Grid sx={{ backgroundColor: 'lightgreen', padding: 1 }} container spacing={2}>
                     <Grid sx={{ backgroundColor: 'lightblue', padding: 1 }} item size={12}>
                         <Typography variant="h6" gutterBottom>
@@ -46,7 +49,6 @@ function BookCreate({onCreate}) {
                             variant="outlined" />
                         </Grid>
                         <Grid display="flex" alignItems="center" item xs={4}>
-                            {/* learned the right way to do it was set type prop as submit */}
                             <Button type = "submit" variant="contained">Submit</Button>
                         </Grid>
                     </Grid>
